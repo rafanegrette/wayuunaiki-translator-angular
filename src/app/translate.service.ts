@@ -17,13 +17,27 @@ const httpOptions = {
 })
 export class TranslateService {
   
-  
   //url:string ="http://localhost:5000/";
 
   constructor(private http: HttpClient) { }
 
   translate(textToTranslate: string) {        
     let textJson = { "text": textToTranslate};
-    return this.http.post<PhraseResponse>(environment.translateUrl, textJson, httpOptions);
+    return this.http.post<PhraseResponse>(environment.translateUrl, textJson, httpOptions)
+                                          .pipe(
+                                            retry(1),
+                                            catchError(this.handleError)
+                                          );
+  }
+
+  handleError(error: any) {
+    let errorMessage: String = '';
+    if (error.error instanceof ErrorEvent){
+      errorMessage = "Ocurrio un error: " + error.error.message;
+    } else {
+      errorMessage = "Occurrio un error: " +
+        error.status + "\nMensaje: " + error.message;
+    }
+    return throwError(errorMessage + ". \n\nContacte al administrador.");
   }
 }

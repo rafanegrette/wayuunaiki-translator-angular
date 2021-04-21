@@ -324,3 +324,8 @@
   font-size: 16px;
   padding: 16px 32px;
 }
+
+.error {
+  color: #cb0000;
+  font-weight: bolder;
+}

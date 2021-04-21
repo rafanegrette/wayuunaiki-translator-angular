@@ -7,6 +7,7 @@ import { TranslateService } from './translate.service';
 })
 export class AppComponent {
   title = 'Traductor español-wayuunaiki';
+  error: string = '';
 
   textToTranslate: string = "";
   textTranslated: string = "";
@@ -15,7 +16,18 @@ export class AppComponent {
 
   }
   translate() {
+    this.error = '';
     this.translateService.translate(this.textToTranslate)
-          .subscribe(response => this.textTranslated = response.body);
+          .subscribe(response => {
+                                if (response.statusCode === 200) 
+                                  this.textTranslated = response.body;
+                                else {
+                                  this.error = response.body;
+                                  this.textTranslated = '';
+                                  }
+                                },
+                    error => {
+                      this.error = error;
+                      this.textTranslated = ''});
   }
 }
