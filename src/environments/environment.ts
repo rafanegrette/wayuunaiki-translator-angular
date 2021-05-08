@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  translateUrl: "http://localhost:5000/"
+  translateUrl: "http://spanish-wauunaiki.westus2.azurecontainer.io"
 };
 
 /*
