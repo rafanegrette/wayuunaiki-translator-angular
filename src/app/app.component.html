@@ -43,8 +43,10 @@
   
   <p><i>Esta aplicación se encuentra aun en desarrollo, mensualmente la exactitud de las traducciones iran mejorando</i></p>
   <br>
-  <input type="hidden" #selection>
 
+  
+  <span class="badge bg-secondary">{{labelToTranslate}}:</span>
+  
   <div class="input-group">
     <div class="input-group-prepend">      
       <span class="input-group-text">
@@ -57,16 +59,28 @@
   </div>
   <br>
 
+  
   <div class="container">    
-    <!--img src="../assets/logo128px.png" alt="Traducir" class="image"/>
-    <div class="middle">
-      <div class="text"-->
+    <!--img src="../assets/logo128px.png" alt="Traducir" class="image"/-->
+    
+        
         <button type="button" class="btn btn-danger" (click)="translate()">
           <b>Traduccir</b>
-        </button>      
+        </button>              
+
+        <div class="middle">
+          <input 
+            type="image"  
+            alt="intercambiar" 
+            (click) = "interchange()"
+            src="../assets/swap-logo.png">
+          <!--div class="text"-->
+        </div>
   </div>
 
   <br>
+  <span class="badge bg-secondary"> {{labelTranslated}}:</span>
+
   <textarea class="form-control" aria-label="With textarea" readonly [(ngModel)]="textTranslated"></textarea>
 
   <div class="error">{{error}}</div>

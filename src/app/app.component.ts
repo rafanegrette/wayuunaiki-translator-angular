@@ -9,6 +9,9 @@ export class AppComponent {
   title = 'Traductor español-wayuunaiki';
   error: string = '';
 
+  labelToTranslate: string = "Español";
+  labelTranslated: string = "Wayuunaiki";
+  spanishToWayuu: Boolean = true;
   textToTranslate: string = "";
   textTranslated: string = "";
 
@@ -17,17 +20,45 @@ export class AppComponent {
   }
   translate() {
     this.error = '';
-    this.translateService.translate(this.textToTranslate)
-          .subscribe(response => {
-                                if (response.statusCode === 200) 
-                                  this.textTranslated = response.body;
-                                else {
-                                  this.error = response.body;
-                                  this.textTranslated = '';
-                                  }
-                                },
-                    error => {
-                      this.error = error;
-                      this.textTranslated = ''});
+
+    if (this.spanishToWayuu) {
+      this.translateService.translateSpaToGuc(this.textToTranslate)
+            .subscribe(response => {
+                                  if (response.statusCode === 200) 
+                                    this.textTranslated = response.body;
+                                  else {
+                                    this.error = response.body;
+                                    this.textTranslated = '';
+                                    }
+                                  },
+                      error => {
+                        this.error = error;
+                        this.textTranslated = ''});
+    } else {
+      this.translateService.translateGucToSpa(this.textToTranslate)
+            .subscribe(response => {
+                                  if (response.statusCode === 200) 
+                                    this.textTranslated = response.body;
+                                  else {
+                                    this.error = response.body;
+                                    this.textTranslated = '';
+                                    }
+                                  },
+                      error => {
+                        this.error = error;
+                        this.textTranslated = ''});
+    }
+  }
+
+  interchange() {
+    this.spanishToWayuu = !this.spanishToWayuu;
+
+    if (this.spanishToWayuu) {
+      this.labelToTranslate = "Español";
+      this.labelTranslated = "Wayuunaiki";
+    } else {
+      this.labelToTranslate = "Wayuunaiki";
+      this.labelTranslated = "Español";
+    }
   }
 }

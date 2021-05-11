@@ -5,6 +5,7 @@ import { catchError, retry } from 'rxjs/operators';
 import { HttpHeaders } from '@angular/common/http';
 import { PhraseResponse } from './PhraseResponse';
 import { environment } from '../environments/environment'
+import { Console } from 'node:console';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -21,9 +22,10 @@ export class TranslateService {
 
   constructor(private http: HttpClient) { }
 
-  translate(textToTranslate: string) {        
+  translateSpaToGuc(textToTranslate: string) {        
     let textJson = { "text": textToTranslate};
-    return this.http.post<PhraseResponse>(environment.translateUrl, textJson, httpOptions)
+    console.log(textJson);
+    return this.http.post<PhraseResponse>(environment.translateSpaToGucUrl, textJson, httpOptions)
                                           .pipe(
                                             retry(1),
                                             catchError(this.handleError)
@@ -40,4 +42,15 @@ export class TranslateService {
     }
     return throwError(errorMessage + ". \n\nContacte al administrador.");
   }
+
+  translateGucToSpa(textToTranslate: string) {        
+    let textJson = { "text": textToTranslate};
+    console.log(textJson);
+    return this.http.post<PhraseResponse>(environment.translateGucToSpaUrl, textJson, httpOptions)
+                                          .pipe(
+                                            retry(1),
+                                            catchError(this.handleError)
+                                          );
+  }
+  
 }
