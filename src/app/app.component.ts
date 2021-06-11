@@ -14,6 +14,7 @@ export class AppComponent {
   spanishToWayuu: Boolean = true;
   textToTranslate: string = "";
   textTranslated: string = "";
+  logoPath: string = "../assets/logo128px.png";
 
   constructor(private translateService: TranslateService) {
 
@@ -52,13 +53,22 @@ export class AppComponent {
 
   interchange() {
     this.spanishToWayuu = !this.spanishToWayuu;
+    let textTemp: string = "";
 
     if (this.spanishToWayuu) {
       this.labelToTranslate = "Español";
       this.labelTranslated = "Wayuunaiki";
+      textTemp = this.textToTranslate;
+      this.textToTranslate = this.textTranslated;
+      this.textTranslated = textTemp;
+      this.logoPath = "../assets/logo128px.png";
     } else {
       this.labelToTranslate = "Wayuunaiki";
       this.labelTranslated = "Español";
+      textTemp = this.textTranslated;       
+      this.textTranslated  = this.textToTranslate;
+      this.textToTranslate = textTemp;
+      this.logoPath = "../assets/logo2-128px.png";
     }
   }
 }

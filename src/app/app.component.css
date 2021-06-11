@@ -41,12 +41,12 @@
     margin: 0 16px;
   }
 
-  .toolbar #twitter-logo {
+  .toolbar #linkedin-logo {
     height: 40px;
     margin: 0 16px;
   }
 
-  .toolbar #twitter-logo:hover {
+  .toolbar #linkedin-logo:hover {
     opacity: 0.8;
   }
 

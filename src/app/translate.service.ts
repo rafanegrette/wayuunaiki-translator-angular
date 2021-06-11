@@ -5,7 +5,6 @@ import { catchError, retry } from 'rxjs/operators';
 import { HttpHeaders } from '@angular/common/http';
 import { PhraseResponse } from './PhraseResponse';
 import { environment } from '../environments/environment'
-import { Console } from 'node:console';
 
 const httpOptions = {
   headers: new HttpHeaders({
