@@ -27,7 +27,7 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 const environment = {
     production: false,
-    translateSpaToGucUrl: "http://spanish-wauunaiki.westus2.azurecontainer.io",
+    translateSpaToGucUrl: "http://api-translator-esp-guc.herokuapp.com/",
     translateGucToSpaUrl: "http://20.72.193.82"
 };
 /*
@@ -66,7 +66,8 @@ __webpack_require__.r(__webpack_exports__);
 
 const httpOptions = {
     headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Accept': 'application/vnd.heroku+json; version=3.docker-releases'
     })
 };
 class TranslateService {
