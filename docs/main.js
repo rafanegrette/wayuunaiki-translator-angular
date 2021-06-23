@@ -27,7 +27,7 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 const environment = {
     production: false,
-    translateSpaToGucUrl: "http://api-translator-esp-guc.herokuapp.com/",
+    translateSpaToGucUrl: "https://api-translator-esp-guc.herokuapp.com/",
     translateGucToSpaUrl: "http://20.72.193.82"
 };
 /*
