@@ -8,7 +8,8 @@ import { environment } from '../environments/environment'
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type':  'application/json'
+    'Content-Type':  'application/json',
+    'Accept': 'application/vnd.heroku+json; version=3.docker-releases'
   })
 };
 
