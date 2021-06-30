@@ -28,7 +28,7 @@ __webpack_require__.r(__webpack_exports__);
 const environment = {
     production: false,
     translateSpaToGucUrl: "https://api-translator-esp-guc.herokuapp.com/",
-    translateGucToSpaUrl: "http://20.72.193.82"
+    translateGucToSpaUrl: "https://api-translator-guc-esp.herokuapp.com/"
 };
 /*
  * For easier debugging in development mode, you can import the following file

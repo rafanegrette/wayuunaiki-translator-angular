@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   translateSpaToGucUrl: "https://api-translator-esp-guc.herokuapp.com/",
-  translateGucToSpaUrl: "http://20.72.193.82"
+  translateGucToSpaUrl: "https://api-translator-guc-esp.herokuapp.com/"
 };
 
 /*
