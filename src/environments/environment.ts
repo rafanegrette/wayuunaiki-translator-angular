@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  translateSpaToGucUrl: "https://api-translator-esp-guc.herokuapp.com/",
-  translateGucToSpaUrl: "https://api-translator-guc-esp.herokuapp.com/"
+  translateSpaToGucUrl: "http://localhost:8000/",
+  translateGucToSpaUrl: "http://localhost:8000/"
 };
 
 /*

@@ -1,4 +1,6 @@
+import { TranslateOptions } from "./TranslateOptions";
+
 export interface PhraseResponse {
-    body: string;
+    body: TranslateOptions;
     statusCode: number;
 }

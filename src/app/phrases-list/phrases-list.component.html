@@ -1,0 +1,18 @@
+<h2>phrases-list works!</h2>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope>Audio</th>
+            <th scope>Español</th>
+            <th scope>Wayuunaiki</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let phrase of phrases">
+            <th scope="row">{{phrase.audioPath}}</th>
+            <td>{{ phrase.spa }}</td>
+            <td>{{ phrase.guc }}</td>
+        </tr>
+    </tbody>
+</table>

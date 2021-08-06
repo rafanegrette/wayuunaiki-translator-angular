@@ -1,0 +1,61 @@
+<div id="title" class="translator-title">
+  <div class="card highlight-card card-small" >
+    <img
+    alt="Wayuunaiki App"
+    src={{logoPath}} style="position:absolute; top:-35px; left:-60px" />
+
+    <span>{{ title }} </span>
+
+    <svg id="rocket-smoke" alt="Rocket Ship Smoke" xmlns="http://www.w3.org/2000/svg" width="516.119" height="1083.632" viewBox="0 0 516.119 1083.632">
+      <path id="Path_40" data-name="Path 40" d="M644.6,141S143.02,215.537,147.049,870.207s342.774,201.755,342.774,201.755S404.659,847.213,388.815,762.2c-27.116-145.51-11.551-384.124,271.9-609.1C671.15,139.365,644.6,141,644.6,141Z" transform="translate(-147.025 -140.939)" fill="#f5f5f5"/>
+    </svg>
+
+  </div>
+</div>
+<br>
+<br>
+<h2>Ingrese la frase a traducir</h2>
+
+<p><i>Esta aplicación se encuentra aun en desarrollo, mensualmente la exactitud de las traducciones iran mejorando</i></p>
+<br>
+
+<span class="badge bg-secondary">{{labelToTranslate}}:</span>
+  
+<div class="input-group">
+  <div class="input-group-prepend">      
+    <span class="input-group-text">
+      <i class="bi bi-pencil-fill fa-2x"></i>
+      &nbsp;
+      Escriba la frase
+    </span>
+  </div>
+  <textarea class="form-control" aria-label="With textarea" [(ngModel)]="textToTranslate"></textarea>
+</div>
+<br>
+
+
+<div class="container">    
+  <!--img src="../assets/logo128px.png" alt="Traducir" class="image"/-->
+  
+      
+      <button type="button" class="btn btn-danger" (click)="translate()">
+        <b>Traduccir</b>
+      </button>              
+
+      <div class="middle">
+        <input 
+          type="image"  
+          alt="intercambiar" 
+          (click) = "interchange()"
+          src="assets/swap-logo.png">
+        <!--div class="text"-->
+      </div>
+</div>
+
+<br>
+<span class="badge bg-secondary"> {{labelTranslated}} - Prediccion AI:</span>
+
+<textarea class="form-control" aria-label="With textarea" readonly [(ngModel)]="textTranslated"></textarea>
+<span class="badge bg-secondary"> {{labelTranslated}} - Diccionario:</span>
+<textarea class="form-control" aria-label="With textarea" readonly [(ngModel)]="textDictionaryResult"></textarea>
+<div class="error">{{error}}</div>
