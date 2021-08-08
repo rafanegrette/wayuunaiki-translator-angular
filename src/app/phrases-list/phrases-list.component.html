@@ -1,18 +1,22 @@
-<h2>phrases-list works!</h2>
+<h2>Frases utiles en contexto turistico</h2>
 
 <table class="table table-hover">
     <thead>
-        <tr>
-            <th scope>Audio</th>
+        <tr>            
             <th scope>Español</th>
             <th scope>Wayuunaiki</th>
+            <th scope>Audio</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let phrase of phrases">
-            <th scope="row">{{phrase.audioPath}}</th>
+        <tr *ngFor="let phrase of phrases; let i = index">
             <td>{{ phrase.spa }}</td>
             <td>{{ phrase.guc }}</td>
+            <th scope="row"> 
+                <a style="cursor: pointer" (mouseover)="mouseOutSpeaker = i" (mouseout)="mouseOutSpeaker = -1">
+                    <img [src]="mouseOutSpeaker === i ? speakerHoverPath : speakerNormalPath" (click)="playAudio(phrase.audioPath)">
+                </a>
+            </th>
         </tr>
     </tbody>
 </table>

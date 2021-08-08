@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  translateSpaToGucUrl: "http://localhost:8000/",
-  translateGucToSpaUrl: "http://localhost:8000/"
+  translateSpaToGucUrl: "http://172.17.0.2:8000/",
+  translateGucToSpaUrl: "http://172.17.0.2:8000/"
 };
 
 /*

@@ -8,7 +8,7 @@ import { PhraseModel } from './model/phrase.model';
 })
 export class PhrasesListService {
   private _listPhrases : PhraseModel[] = [];
-  private PATH_DATA = 'assets/tourism_phrases.csv';
+  private PATH_DATA = 'assets/phrases-json.json';
 
   constructor(private http: HttpClient) { }
 
@@ -16,13 +16,10 @@ export class PhrasesListService {
     return this._listPhrases;
   }
 
-  loadData(): Promise<any[]>{
-    const options = {
-      responseType: 'text' as const,
-    };
-    return new Promise<any[]>(resolve => {
-      this.http.get(this.PATH_DATA, {responseType: 'text'}).subscribe(data => {
-        console.log(data)
+  loadData(): Promise<PhraseModel[]>{
+    return new Promise<PhraseModel[]>(resolve => {
+      this.http.get<PhraseModel[]>(this.PATH_DATA, ).subscribe(data => {
+        this._listPhrases = data;
         resolve(this._listPhrases);
       });
       

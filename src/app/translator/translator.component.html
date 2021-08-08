@@ -33,6 +33,9 @@
 </div>
 <br>
 
+<div [ngClass]="{'spinner': isLoading}">
+  <div [ngClass]="{'transparent-background': isLoading}"></div>
+</div>
 
 <div class="container">    
   <!--img src="../assets/logo128px.png" alt="Traducir" class="image"/-->
@@ -47,7 +50,7 @@
           type="image"  
           alt="intercambiar" 
           (click) = "interchange()"
-          src="assets/swap-logo.png">
+          src="assets/swap-logo.svg">
         <!--div class="text"-->
       </div>
 </div>

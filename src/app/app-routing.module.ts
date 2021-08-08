@@ -6,7 +6,7 @@ import { TranslatorComponent } from "./translator/translator.component";
 const appRoutes: Routes = [    
     { path: 'translator', component: TranslatorComponent},
     { path: 'phrases-list', component: PhrasesListComponent},
-    { path: '', component: TranslatorComponent}
+    { path: '**', redirectTo: '/translator'}
 ];
 @NgModule({
     imports: [

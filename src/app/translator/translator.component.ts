@@ -17,8 +17,12 @@ export class TranslatorComponent implements OnInit {
   textTranslated: string = "";
   textDictionaryResult: string = "";
   results : TranslateOptions = {dictionary: "", predict : ""};
-  logoPath: string = "assets/logo128px.png";
-  title = 'Traductor español-wayuunaiki';  
+  logoPath: string = "assets/logo128px.png";  
+  TITLE_S_TO_W: string = 'Traductor español-wayuunaiki';
+  TITLE_W_TO_S: string = 'Traductor wayuunaiki-español';
+  title: string = this.TITLE_S_TO_W;
+  isLoading: boolean = false;
+
   @Output() logoPathChanged = new EventEmitter<string>();
 
   constructor(private translateService: TranslateService) {
@@ -26,7 +30,7 @@ export class TranslatorComponent implements OnInit {
   }
   translate() {
     this.error = '';
-
+    this.isLoading = true;
     if (this.spanishToWayuu) {
       this.translateService.translateSpaToGuc(this.textToTranslate)
             .subscribe(response => {
@@ -38,10 +42,12 @@ export class TranslatorComponent implements OnInit {
                                     this.textDictionaryResult = '';                                 
                                     this.textTranslated = '';
                                     }
+                                    this.isLoading = false;
                                   },
                       error => {
                         this.error = error;
-                        this.textTranslated = ''});
+                        this.textTranslated = '',
+                        this.isLoading = false;});
     } else {
       this.translateService.translateGucToSpa(this.textToTranslate)
             .subscribe(response => {
@@ -53,10 +59,12 @@ export class TranslatorComponent implements OnInit {
                                     this.textTranslated = '';
                                     this.textDictionaryResult = '';
                                     }
+                                    this.isLoading = false;
                                   },
                       error => {
                         this.error = error;
-                        this.textTranslated = ''});
+                        this.textTranslated = '';
+                        this.isLoading = false;});
     }
   }
 
@@ -71,7 +79,8 @@ export class TranslatorComponent implements OnInit {
       textTemp = this.textToTranslate;
       this.textToTranslate = this.textTranslated;
       this.textTranslated = textTemp;
-      this.logoPath = "assets/logo128px.png";      
+      this.logoPath = "assets/logo128px.png";
+      this.title = this.TITLE_S_TO_W;
     } else {
       this.labelToTranslate = "Wayuunaiki";
       this.labelTranslated = "Español";
@@ -79,6 +88,7 @@ export class TranslatorComponent implements OnInit {
       this.textTranslated  = this.textToTranslate;
       this.textToTranslate = textTemp;
       this.logoPath = "assets/logo2-128px.png";
+      this.title = this.TITLE_W_TO_S
     }
     this.logoPathChanged.emit(this.logoPath);
   }
