@@ -18,8 +18,8 @@ export class TranslatorComponent implements OnInit {
   textDictionaryResult: string = "";
   results : TranslateOptions = {dictionary: "", predict : ""};
   logoPath: string = "assets/logo128px.png";  
-  TITLE_S_TO_W: string = 'Traductor español-wayuunaiki';
-  TITLE_W_TO_S: string = 'Traductor wayuunaiki-español';
+  TITLE_S_TO_W: string = 'Traductor español - wayuunaiki';
+  TITLE_W_TO_S: string = 'Traductor wayuunaiki - español';
   title: string = this.TITLE_S_TO_W;
   isLoading: boolean = false;
 
