@@ -7,12 +7,14 @@ import { TranslatorComponent } from './translator/translator.component';
 import { HeaderComponent } from './header/header.component';
 import { PhrasesListComponent } from './phrases-list/phrases-list.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AboutComponent } from './about/about.component';
 @NgModule({
   declarations: [
     AppComponent,
     TranslatorComponent,
     HeaderComponent,
-    PhrasesListComponent
+    PhrasesListComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
