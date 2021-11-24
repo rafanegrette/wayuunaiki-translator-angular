@@ -104,8 +104,8 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 const environment = {
     production: false,
-    translateSpaToGucUrl: "http://172.17.0.3:8000/",
-    translateGucToSpaUrl: "http://172.17.0.2:8000/"
+    translateSpaToGucUrl: "https://api-translator-esp-guc.herokuapp.com/",
+    translateGucToSpaUrl: "https://api-translator-guc-esp.herokuapp.com/"
 };
 /*
  * For easier debugging in development mode, you can import the following file
